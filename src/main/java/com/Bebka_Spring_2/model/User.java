@@ -1,15 +1,15 @@
 package com.Bebka_Spring_2.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
+@Table(name = "users")
 public class User {
 
     @Id
@@ -18,7 +18,5 @@ public class User {
 
     private String name;
     private String email;
-    private String password;
-
 
 }
