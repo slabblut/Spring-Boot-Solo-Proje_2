@@ -13,6 +13,8 @@ public interface UserService {
     UserResponse updateUser(Long id, String newEmail);
     Page<UserResponse> getAllUsers(int page, int size);
     void deleteUser(Long id);
+    void createUserWithException(UserRequest request);
+
 
 
 

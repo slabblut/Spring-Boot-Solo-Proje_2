@@ -52,6 +52,14 @@ public class UserServiceImpl implements UserService {
     public void deleteUser(Long id) {
         userRepository.deleteById(id);
     }
+    @Transactional(propagation = Propagation.REQUIRED)
+    public void createUserWithException(UserRequest request) {
+        User user = modelMapper.map(request, User.class);
+        userRepository.save(user);
+
+        throw new RuntimeException("Geri alma testi için oluşturulmuş hata");
+    }
+
 }
 
 

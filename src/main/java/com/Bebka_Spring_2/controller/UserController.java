@@ -40,6 +40,17 @@ public class UserController {
         userService.getAllUsers(0, 5);
         return "Propagation test completed!";
     }
+    @PostMapping("/rollback-test")
+    public String rollbackTest() {
+        try {
+            UserRequest request = new UserRequest("RollbackUser", "rollback@example.com");
+            userService.createUserWithException(request);
+        } catch (Exception e) {
+            return "İşlem geri alındı. Hata: " + e.getMessage();
+        }
+        return "Bu mesaj hiçbir zaman dönmemeli";
+    }
+
 
 }
 
