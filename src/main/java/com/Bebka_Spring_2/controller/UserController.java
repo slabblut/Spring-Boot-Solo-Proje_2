@@ -33,6 +33,14 @@ public class UserController {
     public void deleteUser(@PathVariable Long id) {
         userService.deleteUser(id);
     }
+    @PostMapping("/propagation-test")
+    public String testPropagation(@RequestBody UserRequest request) {
+        userService.createUser(request);
+        userService.updateUser(4L, "silatest@example.com");
+        userService.getAllUsers(0, 5);
+        return "Propagation test completed!";
+    }
+
 }
 
 
